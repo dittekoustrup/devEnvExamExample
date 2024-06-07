@@ -6,9 +6,19 @@ jobs:
   Linting:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v4 # githubs own action plugin - a way Github knows to get all your code from github, and run actions on it
       - name: 'Installs packages'
         run: npm install
       - name: 'Execute linter'
         run: npm run lint
+
+  E2E-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkoutv4
+      - name: 'Install packages'
+        run: npm intall
+      - uses: cypress-io/github-actions@v6 # Cypress way to run you e2e test - cypress plugin that automaticly runs your cypress-e2e test
+        with: 
+          start: npm run dev
     
