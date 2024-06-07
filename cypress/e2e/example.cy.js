@@ -1,8 +1,19 @@
-// https://on.cypress.io/api
+describe('Render website', () => {
+ it('Visits the website', () => {
+   cy.visit('http://localhost:5173')
+ })
 
-describe('My First Test', () => {
-  it('visits the app root url', () => {
-    cy.visit('/')
-    cy.contains('h1', 'You did it!')
+ it('checks status code', () => {
+  cy.request('http://localhost:5173').then((response) => {
+    expect(response.status).to.eq(200)
   })
+ })
+
+ it('Test navigation', () => {
+  cy.visit('http://localhost:5173')
+  cy.get('a').contains('About').click()
+  cy.url().should('include', '/about')
+ })
 })
+
+
