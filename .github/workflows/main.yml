@@ -18,7 +18,7 @@ jobs:
       - uses: actions/checkoutv4
       - name: 'Install packages'
         run: npm intall
-      - uses: cypress-io/github-actions@v6 # Cypress way to run you e2e test - cypress plugin that automaticly runs your cypress-e2e test
+      - uses: cypress-io/github-action@v6 # Cypress way to run you e2e test - cypress plugin that automaticly runs your cypress-e2e test
         with: 
           start: npm run dev
     
